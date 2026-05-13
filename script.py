@@ -12,11 +12,13 @@ for folder_name in os.listdir(base_folder):
             file_path = os.path.join(folder_path, file)
             file_name, extension = os.path.splitext(file)
 
-            rows.append({
-                "Category": folder_name,
-                "File": file_name,
-                "Extension": extension
-                })
+            if extension.lower() in [".jpg", ".txt"]:
+
+                rows.append({
+                    "Category": folder_name,
+                    "File": file_name,
+                    "Extension": extension
+                    })
 
 df = pd.DataFrame(rows)
 
